@@ -5,7 +5,7 @@ import { CreateTaskDto } from './dto/create-task.dto';
 
 @Injectable()
 export class TasksService {
-  private readonly tasks: Task[] = [
+  private tasks: Task[] = [
     {
       id: '2146c9b9-9f05-4846-9d9e-2f1e7edbd7e3',
       title: 'Clean my room',
@@ -36,4 +36,7 @@ export class TasksService {
     return task;
   }
 
+  public deleteTask(id: string): void {
+    this.tasks = this.tasks.filter((task) => task.id !== id);
+  }
 }
